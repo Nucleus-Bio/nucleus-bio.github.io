@@ -3,33 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bioinformatics Software</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Nucleus-Bio</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.2.3/dist/material.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #1976d2;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            /* position: fixed; */
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-    <header class="bg-blue-600 text-white p-4">
-        <h1 class="text-3xl font-bold">LLM-Based Bioinformatics Software</h1>
+<body>
+    <header>
+        <h1>Nucleus-Bio</h1>
+        <h2>Your IDE for Bioinformaticians</h2>
     </header>
-    <main class="p-4">
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">About the Software</h2>
-            <p class="mt-2">This software leverages the power of large language models to provide advanced bioinformatics analysis.</p>
-        </section>
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Features</h2>
-            <ul class="list-disc list-inside mt-2">
-                <li>Feature 1</li>
-                <li>Feature 2</li>
-                <li>Feature 3</li>
+    <main>
+        <div class="card">
+            <h3>Detailed Description of Nucleus</h3>
+            <p>Nucleus is a platform that makes complex bioinformatics workflows easier and more accessible. It leverages large language models and WebAssembly to automate tasks that usually require advanced computational skills, such as setting up environments, handling diverse datasets, and managing software dependencies.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Core Functionality</h3>
+            <p>Nucleus is a development environment that uses large language models (LLMs) to design and execute bioinformatics workflows. The AI agent within Nucleus can run tools, make real-time adjustments, and respond to human feedback interactively. For example, when analyzing genomic data, Nucleus organizes the necessary steps, executes them, and fixes any issues as they arise, all in real-time. This is made possible by a unified execution environment that lets LLMs run WebAssembly tools directly on a user's machine or server without needing any additional installation. This flexibility makes it easier for biologists to work with a wide range of tools, all within a single, streamlined environment.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Nucleus Prototype</h3>
+            <p>Our product is in early development, but we have completed a proof-of-concept application composed of two main components:</p>
+            <ul>
+                <li><strong>Nucleus Extension:</strong> An extension for Visual Studio Code providing a chat interface to the LLM agent. Some example queries may be: "identify genetic variants in these files" or "use <code>sed</code> and <code>awk</code> to rename each header in this FASTQ file, then <code>gzip</code> it." Nucleus Extension acquires access to selected user files and passes the query to Nucleus Core. Tool execution is carried out in the extension with the Aioli library.</li>
+                <li><strong>Nucleus Core:</strong> The backend of the Nucleus LLM agent. When a query is received from chat, it is sent to an Orchestrator agent prompted with a description of all tools available (each tool is an individual executable WebAssembly program). The orchestrator selects the best tool for the job, then queries a secondary Tool agent. The tool agent constructs a command line input to perform the requested task, assisted by on-the-fly RAG with documentation. When the tool agent outputs a command, it is sent back to the Nucleus Extension to be executed safely on the user's machine.</li>
             </ul>
-        </section>
-        <section class="my-8">
-            <h2 class="text-2xl font-semibold">Get Started</h2>
-            <p class="mt-2">Follow the instructions to install and use the software.</p>
-        </section>
+            <p>Biowasm provides 30+ of the most commonly used bioinformatics and Unix tools pre-compiled to WebAssembly. The Nucleus prototype supports all of these tools, and adding new tools is easy.</p>
+        </div>
+        
+        <div class="card">
+            <h3>Looking Forward</h3>
+            <p>We plan to develop Nucleus into a comprehensive integrated development environment (IDE) that not only streamlines bioinformatics workflows but also changes how biologists interact with data. We will integrate visualization capabilities specific to biological data analysis. Nucleus will eventually be a standalone application that runs in a web browser or locally on any system. We aim to create a platform where biologists can not only execute complex analyses with minimal setup but also explore, visualize, and interpret their data in entirely new ways.</p>
+        </div>
     </main>
-    <footer class="bg-blue-600 text-white p-4 text-center">
-        <p>&copy; 2024 Bioinformatics Software</p>
+    <footer>
+        <p>&copy; 2023 Nucleus-Bio. All rights reserved.</p>
     </footer>
 </body>
 </html>
