@@ -5,4 +5,28 @@ theme: just-the-docs
 url: https://just-the-docs.github.io
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  "Github":
+    - "https://github.com/Nucleus-Bio/nucleus"
+  "Blogs":
+    - "docs/blogs"
+
+
+permalink: pretty
+
+defaults:
+  - scope:
+      path: "docs" # an empty string here means all files in the project
+      type: "pages"
+    values:
+      layout: "default"
+
+search_enabled: true
+
+heading_anchors: true
+
+aux_links_new_tab: true
+
+nav_enabled: true
+
+exclude:
+  - docs/blogs
